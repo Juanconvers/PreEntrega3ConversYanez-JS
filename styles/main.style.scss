@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* IMPORTE DE PARTIALS */
+
+@import "_mixins.scss","_responsive.scss", "_texts.scss", "_buttons-interactive.scss";
+
+/* CONTAINER-FLUID DE BOOTSTRAP */
+
+.container-fluid {
+    font-family: 'montserrat';
+    color: #000000;
+    overflow: auto;
+    margin: 0;
+}
+
+/* ++++ CONTENIDO ++++ */
+
+/* NAVEGADOR */
+
+header {
+
+    .nav {
+        background: rgb(255, 255, 255);
+        background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(77, 77, 77) 100%);
+        width: 100%;
+        padding: 10px 30px;
+        overflow: auto;
+        
+        .navigation__link--logo {
+            width: 150px;
+            padding: 0 30px;
+        }
+
+        .navigation__link--logo:hover {
+            transform: scale(1.2);
+        }
+
+        .navigation__link {
+            margin: 15px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #000000;
+            text-decoration-line: none;
+        }
+
+        .navigation__link:hover {
+            color: rgb(170, 170, 170);
+            
+        }
+        .nav-cart{
+            .navigation__cart--button{
+                width: 115px;
+                padding: 0 30px;
+            }
+            .navigation__cart--button:hover {
+                transform: scale(1.2);
+            }
+        }
+    }
+}
+
+/* BANNER - IMÁGENES */
+.banner {
+    padding: 15px;
+    @include flexible (flex, row wrap, center, unset, unset, unset);
+    .banner__image {
+        padding: 15px;
+        width: 700px;
+    }
+}
+
+/* PIÉ DE PÁGINA */
+
+#footer {
+    background-color: rgb(122, 122, 122);
+    color: white;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    @include flexible (flex, row wrap, space-evenly, flex-start, unset, unset);
+
+    .footer__info {
+        padding-top: 20px;
+        text-align: center;
+
+        .footer__headline {
+            font-weight: 700;
+            font-size: 22px;
+            margin: 15px;
+        }
+
+        .footer__link,
+        .footer__paragraph {
+            text-decoration-line: none;
+            font-weight: 400;
+            font-size: 18px;
+            color: white;
+            margin: 15px;
+            line-height: 35px;
+        }
+
+        .footer__link:hover {
+            color: rgb(63, 63, 63);
+            
+            
+        }
+        .footer__info--socialmedia{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+            .footer__link--socialmedia{
+              .footer__link--icon{
+                width: 50px;
+                filter: invert(1);
+                }
+              .footer__link--icon:hover {
+                filter: invert(0.3);
+                }
+            }
+        }
+
+    }
+}
