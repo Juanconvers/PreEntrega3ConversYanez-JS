@@ -56,7 +56,7 @@
 			<img class="banner__image" src="./assets/images/banner-legal-business.jpg" alt="imagentienda1">
 		</div>
 
-		<!-- FORMULARIO DE CONTACTO -->
+		<!-- FORMULARIO -->
 		<section class="textbox">
 			<div class="textbox__title_h2">
 				<h2 class="h2" data-aos="zoom-in">INGRESE LOS DATOS DE SU PROCESO</h2>
@@ -66,19 +66,20 @@
 		<section class="form">
 			<form class="form__item">
 				<label for="avaluo">¿Cuál es nombre del predio a reclamar? <br> O indique el nombre con que se conoce su caso</label><br>
-				<input class="form__input" type="text" id="nombre" name="nombre" placeholder="Valor en pesos colombianos" />
+				<input class="form__input" type="text" id="nombreCaso" name="nombreCaso" required/>
 			</form>
 			<form class="form__item">
 				<label for="porcentaje">¿Cuál es avalúo catastral del inmueble que pretende?</label><br>
-				<input class="form__input" type="text" id="apellido" name="apellido" placeholder="Escriba valor de 1 a 100" />
+				<input class="form__input" type="text" id="avaluo" name="avaluo" placeholder="Valor en pesos colombianos" required/>
 			</form>
 			<form class="form__item">
 				<label for="email">¿Cuál es el porcentaje que ocupa el predio?</label><br>
-				<input class="form__input" type="email" id="email" name="email" />
+				<input class="form__input" type="email" id="porcentaje" name="porcentaje" placeholder="Escriba valor de 1 a 100" required/>
 			</form>
 			<form class="form__item"><br>
 				<label class="form__text" for="enviar"></label>
-				<input class="form__input--button" type="submit" id="enviar" name="enviar" placeholder="Enviar" />
+				<button class="form__input--button" type="submit" id="enviar" name="enviar">Calcular</button>
+        
 			</form>
 		</section>
 	</main>
@@ -98,7 +99,7 @@
 				<p class="footer__headline">SERVICIOS</p>
 				<a class="footer__link" href="./politicas.html">Términos y Condiciones</a></li><br>
 				<a class="footer__link" href="./politicas.html">Políticas de Privacidad</a></li><br>
-				<a class="footer__link" href="./politicas.html">Política Comercial y de Cambios</a></li><br>
+				<a class="footer__link" href="./politicas.html">Política Comercial</a></li><br>
 			</div>
 			<div class="footer__info">
 				<p class="footer__headline">REDES SOCIALES</p>
