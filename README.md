@@ -7,15 +7,28 @@ Repositorio de preentrega No. 3 - CODERHOUSE Javascript
 
                         ** CAMBIOS Y MEJORAS RESPECTO DE PROYECTO DE LA PREENTREGA No. 2 **
 
-1. Se creó un sistema de Login para entrar al home de la página, donde el usuario introduce los datos y obtiene su respuesta.
+1. Se creó un sistema de Login para entrar al home de la página. 
 
-    El sistema login incluye:
-    a. Sistema funcional de visualización de la clave del usuario por medio de botón "mostrar contraseña", 
-       el cual   funcina con addEventListener en la casilla input correspondiente.
-    b. Linkeo a la página home al pulsar el botán iniciar sesión. Igualmente funciona con addEventListener.
+    Funciona usando la memoria del Local Storage y modificando del DOM:
 
-2. Se modificó el archivo html del home (index) para recibir los datos y emitir el resultado del cálculo.
+        a. El programa primero guarda el usuario y contraseña modificadas por JSON en el Local Storage: 
+            
+            Usuario: "Pedro" 
+            Contraseña: "1234"
 
+        b. Luego una función activada al hacer SUBMIT llama a los datos del Local Storage, los parsea y los compara con los Input del usuario.
+        
+        c. Si coinciden, se abre el HOME del sitio.
+        
+        d. Si no coinciden, aparece un mensaje de "usuario o contraseña incorrectos" el cual se elaboró modificando el DOM con innerHTML.
+
+2. Se modificaron los archivos JS y HTML del home (index):
+
+    a. Todos los datos de entrada se captan en el html via AddEventListener para ser procesados.
+
+    b. Los resultados del cálculo realizado por la función aritmética y el condicional que clasifica dicho cómputo, se muestran en el HTML en una tabla a la que se añaden filas cada vez que se presiona el botón "Registrar". (Uso de modificaciones al DOM)
+
+    c. Al mismo tiempo se despliegan tres líneas de texto en la parte inferior indicando la cantidad de casos que se han introducido en el registro.
 
 
                                             NOTAS DE LA PREENTREGA No. 2

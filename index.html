@@ -63,26 +63,47 @@
 			</div>
 		</section>
 
-		<section class="form">
-			<form class="form__item">
+		<form id="formulario" class="form">
+			<div class="form__item">
 				<label for="avaluo">¿Cuál es nombre del predio a reclamar? <br> O indique el nombre con que se conoce su caso</label><br>
 				<input class="form__input" type="text" id="nombreCaso" name="nombreCaso" required/>
-			</form>
-			<form class="form__item">
-				<label for="porcentaje">¿Cuál es avalúo catastral del inmueble que pretende?</label><br>
-				<input class="form__input" type="text" id="avaluo" name="avaluo" placeholder="Valor en pesos colombianos" required/>
-			</form>
-			<form class="form__item">
-				<label for="email">¿Cuál es el porcentaje que ocupa el predio?</label><br>
-				<input class="form__input" type="email" id="porcentaje" name="porcentaje" placeholder="Escriba valor de 1 a 100" required/>
-			</form>
-			<form class="form__item"><br>
+			</div>
+			<div class="form__item">
+				<label for="avaluo">¿Cuál es avalúo catastral del inmueble que pretende?</label><br>
+				<input class="form__input" type="number" id="avaluo" name="avaluo" placeholder="Valor en pesos colombianos" required/>
+			</div>
+			<div class="form__item">
+				<label for="porcentaje">¿Cuál es el porcentaje que ocupa el predio?</label><br>
+				<input class="form__input" type="number" id="porcentaje" name="porcentaje" placeholder="Escriba valor de 1 a 100" required/>
+			</div>
+			<div class="form__item"><br>
 				<label class="form__text" for="calcular"></label>
-				<button class="form__input--button" type="button" id="calcular" name="calcular">Calcular</button>
-        
-			</form>
-		</section>
+				<input class="form__input--submit" type="submit" id="calcular" name="calcular" value="Registrar"></input>
+			</div>
+		</form>
 	</main>
+
+		<!-- TABLA DE CASOS Y SUS CÁLCULOS} -->
+
+	<table id="tablaCasos" class="table">
+		<div class="text__headline">
+			<h3>CASOS INGRESADOS Y CALCULADOS</h3>
+		</div>
+		<thead>
+			<tr>
+				<th>Caso</th>
+				<th>Avalúo</th>
+				<th>Porcentaje ocupado</th>
+				<th>Valor de la cuantía</th>
+				<th>Cuantía</th>
+				<th>Competencia</th>
+			</tr>
+		</thead>
+	</table>
+
+	<section id="estadistica">
+
+	</section>
 
 	<!-- PIE DE PÁGINA -->
 	<footer class="row">

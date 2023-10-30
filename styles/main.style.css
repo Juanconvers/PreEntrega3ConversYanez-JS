@@ -173,14 +173,10 @@
   font-weight: 700;
 }
 .form .form__item .form__input {
-  height: 30px;
+  height: 38px;
   width: 600px;
 }
-.form .form__item .form__message {
-  height: 90px;
-  width: 600px;
-}
-.form .form__item .form__input--button {
+.form .form__item .form__input--submit {
   font-weight: 700;
   width: 250px;
   height: 50px;
@@ -263,6 +259,11 @@ header .nav .nav-cart .navigation__cart--button:hover {
 .intro__box h1 {
   font-weight: 700;
 }
+.intro__box .intro__box--alert {
+  font-weight: 700;
+  font-size: 20px;
+  color: #da0000;
+}
 
 .login__box {
   background: rgb(255, 255, 255);
@@ -286,17 +287,9 @@ header .nav .nav-cart .navigation__cart--button:hover {
   border: 1px solid #ccc;
   width: 80%;
 }
-.login__box .visible_password {
-  width: 100%;
-  height: auto;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .login__box .login__item--button {
   outline: 0;
-  border: 1px solid #9b9b9b;
+  border: 1px solid #474747;
   width: 80%;
   border-radius: 10px;
 }
@@ -313,7 +306,24 @@ header .nav .nav-cart .navigation__cart--button:hover {
 }
 .banner .banner__image {
   padding: 15px;
-  width: 700px;
+  width: 400px;
+}
+
+/* TABLA DE CASOS */
+.text__headline {
+  padding: 25px;
+  text-align: center;
+}
+.text__headline h3 {
+  font-weight: 700;
+}
+
+.table {
+  text-align: center;
+  padding: 50px;
+}
+.table thead tr {
+  font-size: 20px;
 }
 
 /* PIÉ DE PÁGINA */

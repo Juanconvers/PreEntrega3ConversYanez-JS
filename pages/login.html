@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/images/legal-icon.png">
     <title>login/legales.com</title>
     <meta name="description"
 		content="Servicios legales digitales">
@@ -23,21 +24,19 @@
     <!-- MENSAJE INTRODUCCIÓN -->
         <div class="intro__box">
             <h1 class="h1">CALCULADORA DE COMPETENCIA JUDICIAL</h1>
-            <h2 class="">Ingrese a su sesión personal para comenzar</h2>  
+            <h2 class="h2">Ingrese a su sesión personal para comenzar</h2>  
+            <div id="resultado" class="intro__box--alert"></div>
         </div>
+       
 
     <!-- CUADRO DE DIALOGO PARA LOGIN -->
 
-        <form class="login__box">
+        <form id="formulario" class="login__box">
             <img class="login__item" src="../assets/images/user-img.svg" alt="user_img">
             <label class="login__item" for="username">Usuario</label>
             <input class="login__item login__item--input" type="text" id="username" placeholder="Usuario" required>
             <label class="login__item" for="password">Contraseña</label>
             <input class="login__item login__item--input" type="password" id="password" placeholder="Contraseña" required>
-                <div class="login__item visible_password">
-                    <input type="checkbox" id="visible">
-                    <label for="visible">Mostrar Contraseña</label>
-                </div>
             <button class="login__item login__item--button" type="submit" id="submit">Iniciar Sesión</button>
         </form>
     </section>
