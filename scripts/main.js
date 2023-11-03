@@ -116,6 +116,5 @@ formulario.addEventListener("submit", function(e){
     cantidadCasos.innerHTML += `<p>La cantidad de casos de Mayor cuantía es: ${casosMayorCuantia.length} </p>`;
     tablaEstadistica.append(cantidadCasos);
 
-    
-
 })
+
