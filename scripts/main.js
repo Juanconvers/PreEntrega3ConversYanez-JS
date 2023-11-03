@@ -1,52 +1,63 @@
 // Definición de variables
 
-let cuantia = 0;
-let cuantiaCaso = 0;
 let nombreCaso = "";
 let avaluo = 0;
-let porcentaje = 0; 
-let juzgado = "";;
+let porcentaje = 0;
+let cuantia = 0;
+let cuantiaCaso = 0;
+let juzgado = "";
 
 
+let caso = {
+  nombreCaso,
+  avaluo,
+  porcentaje,
+  cuantia,
+  cuantiaCaso,
+  juzgado
+  }
+
+  
 // let arrayEnSessionStorage = [];
 
 // Definición del Array que tendrá como elementos los casos (objetos) introducidos por el usuario en la consulta
 
-const ARRAYCASOSDELUSUARIO = [];
-let ARRAYDECASOSRECUPERADO =[];
-
-ARRAYDECASOSRECUPERADO = JSON.parse(localStorage.getItem("arrayEnSessionStorage"));
-
+let ARRAYCASOSDELUSUARIO1 = [];
+let ARRAYCASOSDELUSUARIO = [];
+let ARRAYDECASOSRECUPERADO1 = JSON.parse(sessionStorage.getItem("arrayEnSessionStorage"));
 
 
+
+
+console.log(ARRAYDECASOSRECUPERADO1);
 
 
     //         *** SECCIÓN 3: TABLA DE REGISTRO MODIFICADA POR MEDIO DEL DOM  ***
 
   // Registro de la información obtenida en la tabla de resultados de la página
+//   for (caso of ARRAYDECASOSRECUPERADO1){
+//   let tablaDeCasos = document.getElementById("tablaCasos");
+//   let nuevaFila = tablaDeCasos.insertRow();
   
-  let tablaDeCasos = document.getElementById("tablaCasos");
-  let nuevaFila = tablaDeCasos.insertRow();
-  
-  nuevaCasilla = nuevaFila.insertCell(0);
-  nuevaCasilla.textContent = ARRAYDECASOSRECUPERADO.nombreCaso;
+//   nuevaCasilla = nuevaFila.insertCell(0);
+//   nuevaCasilla.textContent = ARRAYDECASOSRECUPERADO1.nombreCaso;
 
-  nuevaCasilla = nuevaFila.insertCell(1);
-  nuevaCasilla.textContent = ARRAYDECASOSRECUPERADO.avaluo;
+//   nuevaCasilla = nuevaFila.insertCell(1);
+//   nuevaCasilla.textContent = ARRAYDECASOSRECUPERADO1.avaluo;
 
-  nuevaCasilla = nuevaFila.insertCell(2);
-  nuevaCasilla.textContent = ARRAYDECASOSRECUPERADO.porcentaje;
+//   nuevaCasilla = nuevaFila.insertCell(2);
+//   nuevaCasilla.textContent = ARRAYDECASOSRECUPERADO1.porcentaje;
 
-  nuevaCasilla = nuevaFila.insertCell(3);
-  nuevaCasilla.textContent = ARRAYDECASOSRECUPERADO.cuantia;
+//   nuevaCasilla = nuevaFila.insertCell(3);
+//   nuevaCasilla.textContent = ARRAYDECASOSRECUPERADO1.cuantia;
 
-  nuevaCasilla = nuevaFila.insertCell(4);
-  nuevaCasilla.textContent = ARRAYDECASOSRECUPERADO.cuantiaCaso;
+//   nuevaCasilla = nuevaFila.insertCell(4);
+//   nuevaCasilla.textContent = ARRAYDECASOSRECUPERADO1.cuantiaCaso;
 
-  nuevaCasilla = nuevaFila.insertCell(5);
-  nuevaCasilla.textContent = ARRAYDECASOSRECUPERADO.juzgado;
+//   nuevaCasilla = nuevaFila.insertCell(5);
+//   nuevaCasilla.textContent = ARRAYDECASOSRECUPERADO1.juzgado;
 
-
+// }
 
 
 
@@ -110,14 +121,14 @@ formulario.addEventListener("submit", function(e){
 
   // Formación del objeto que hará parte del array de casos (la idea es contar los casos ingresados).
 
-  caso = {
-    nombreCaso,
-    avaluo,
-    porcentaje,
-    cuantia,
-    cuantiaCaso,
-    juzgado
-    }
+  // caso = {
+  //   nombreCaso,
+  //   avaluo,
+  //   porcentaje,
+  //   cuantia,
+  //   cuantiaCaso,
+  //   juzgado
+  //   }
   
   // Método que agrega el nuevo objeto al array.
   
@@ -136,26 +147,27 @@ sessionStorage.setItem("arrayEnSessionStorage", JSON.stringify(ARRAYCASOSDELUSUA
 
 //   // Registro de la información obtenida en la tabla de resultados de la página
   
-//   let tablaDeCasos = document.getElementById("tablaCasos");
-//   let nuevaFila = tablaDeCasos.insertRow();
+  let tablaDeCasos = document.getElementById("tablaCasos");
+  let nuevaFila = tablaDeCasos.insertRow();
   
-//   nuevaCasilla = nuevaFila.insertCell(0);
-//   nuevaCasilla.textContent = ARRAYDECASOSRECUPERADO.nombreCaso;
 
-//   nuevaCasilla = nuevaFila.insertCell(1);
-//   nuevaCasilla.textContent = ARRAYDECASOSRECUPERADO.avaluo;
+  nuevaCasilla = nuevaFila.insertCell(0);
+  nuevaCasilla.textContent = (nombreCaso);
 
-//   nuevaCasilla = nuevaFila.insertCell(2);
-//   nuevaCasilla.textContent = ARRAYDECASOSRECUPERADO.porcentaje;
+  nuevaCasilla = nuevaFila.insertCell(1);
+  nuevaCasilla.textContent = (avaluo);
 
-//   nuevaCasilla = nuevaFila.insertCell(3);
-//   nuevaCasilla.textContent = ARRAYDECASOSRECUPERADO.cuantia;
+  nuevaCasilla = nuevaFila.insertCell(2);
+  nuevaCasilla.textContent = (porcentaje);
 
-//   nuevaCasilla = nuevaFila.insertCell(4);
-//   nuevaCasilla.textContent = ARRAYDECASOSRECUPERADO.cuantiaCaso;
+  nuevaCasilla = nuevaFila.insertCell(3);
+  nuevaCasilla.textContent = (cuantia);
 
-//   nuevaCasilla = nuevaFila.insertCell(5);
-//   nuevaCasilla.textContent = ARRAYDECASOSRECUPERADO.juzgado;
+  nuevaCasilla = nuevaFila.insertCell(4);
+  nuevaCasilla.textContent = (cuantiaCaso);
+
+  nuevaCasilla = nuevaFila.insertCell(5);
+  nuevaCasilla.textContent = (juzgado);
 
   //         *** SECCIÓN 4: CLASIFICACIÓN DE LA INFORMACIÓN OBTENIDA CON FINES ESTADÍSTICOS  ***
 
@@ -195,7 +207,7 @@ sessionStorage.setItem("arrayEnSessionStorage", JSON.stringify(ARRAYCASOSDELUSUA
 
 })
 
-console.log(ARRAYDECASOSRECUPERADO);
+
 
 
 
