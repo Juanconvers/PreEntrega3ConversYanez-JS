@@ -1,118 +1,63 @@
 
+//         *** SECCIÓN 1: RECUPERACIÓN DE DATOS GUARDADOS EN EL SESSIONSTORAGE  ***
 
+    // Declaración de arrays vacíos que intervienen en la recuperación 
 
+let arraysesionanterior = [];
+let arraycompleto = [];
 
+    // Se trae la información del SessionStorage invocando la key donde se guardará siempre 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// Definición de variables
-
-let nombreCaso = "";
-let avaluo = 0;
-let porcentaje = 0;
-let cuantia = 0;
-let cuantiaCaso = 0;
-let juzgado = "";
-
-
-// function llenartabladecasos(){
+let arrayTraidoDelStorage = JSON.parse(sessionStorage.getItem("arrayEnSessionStorage"));
     
-//   for (let caso of ARRAYDECASOSRECUPERADO){
-//   let tablaDeCasos = document.getElementById("tablaCasos");
-//   let nuevaFila = tablaDeCasos.insertRow();
-  
-//   nuevaCasilla = nuevaFila.insertCell(0);
-//   nuevaCasilla.textContent = caso.nombreCaso;
+    // Condicional donde se averigua si existe o no la key del session storage.
+    // Si existe, pinta en la tabla la información existente. 
 
-//   nuevaCasilla = nuevaFila.insertCell(1);
-//   nuevaCasilla.textContent = caso.avaluo;
+    if(arrayTraidoDelStorage !== null){
+      arraysesionanterior = arrayTraidoDelStorage;
+      
+      // Ciclo For-of que pinta los datos en la tabla.
 
-//   nuevaCasilla = nuevaFila.insertCell(2);
-//   nuevaCasilla.textContent = caso.porcentaje;
+      let tablaDeCasos = document.querySelector("#tablaCasos tbody");
+      for (let caso of arraysesionanterior){
+        let nuevaFila = tablaDeCasos.insertRow();
+    
+        nuevaCasilla = nuevaFila.insertCell(0);
+        nuevaCasilla.textContent = caso.elnombre;
 
-//   nuevaCasilla = nuevaFila.insertCell(3);
-//   nuevaCasilla.textContent = caso.cuantia;
+        nuevaCasilla = nuevaFila.insertCell(1);
+        nuevaCasilla.textContent = caso.elavaluo;
 
-//   nuevaCasilla = nuevaFila.insertCell(4);
-//   nuevaCasilla.textContent = caso.cuantiaCaso;
+        nuevaCasilla = nuevaFila.insertCell(2);
+        nuevaCasilla.textContent = caso.elporcentaje;
 
-//   nuevaCasilla = nuevaFila.insertCell(5);
-//   nuevaCasilla.textContent = caso.juzgado;
-// }
-// } 
-  
-// // let arrayEnSessionStorage = [];
+        nuevaCasilla = nuevaFila.insertCell(3);
+        nuevaCasilla.textContent = caso.lacuantia;
 
-// // Definición del Array que tendrá como elementos los casos (objetos) introducidos por el usuario en la consulta
+        nuevaCasilla = nuevaFila.insertCell(4);
+        nuevaCasilla.textContent = caso.lacuantiaCaso;
 
-// let ARRAYDECASOSRECUPERADO = [];
+        nuevaCasilla = nuevaFila.insertCell(5);
+        nuevaCasilla.textContent = caso.eljuzgado;
+      }
+    } else {
+  }
 
-// let PREGUNTAALSESSION = [];
+//         *** SECCIÓN 2: FUNCIÓN QUE IMPORTA LOS DATOS DEL HTML Y QUE CÁLCULA LA COMPETENCIA JUDICIAL  ***
 
-// PREGUNTAALSESSION = sessionStorage.getItem("arrayEnSessionStorage");
-
-// if(PREGUNTAALSESSION !== null){
-//   ARRAYDECASOSRECUPERADO = sessionStorage.getItem("arrayEnSessionStorage");
-//   console.log(ARRAYDECASOSRECUPERADO);
-//   llenartabladecasos();
-// } else {
-//   sessionStorage.setItem("arrayEnSessionStorage", "");
-  
-// }
-
-
-// sessionStorage.setItem("arrayEnSessionStorage", JSON.stringify(ARRAYDECASOSVACIO));
-
-
-
-
-
-
-
-
-// if (ARRAYDECASOSRECUPERADO !== null){
-//   llenartabladecasos();
-// }
-   //         *** SECCIÓN 3: TABLA DE REGISTRO MODIFICADA POR MEDIO DEL DOM  ***
-
-  // Registro de la información obtenida en la tabla de resultados de la página
-  
-
-
-
-
-
-
-//         *** SECCIÓN 1: FORMULARIO DE LA APLICACIÓN ***
-
-// llamar las variables acceso al DOM por medio del evento SUBMIT
+    //Se enlaza el botón submit del  html       
 
 const formulario = document.getElementById("formulario");
-
 formulario.addEventListener("submit", function(e){
   e.preventDefault();
   
-  // Se definen las variables para los datos ingresados en el formulario
+    //Se traen los datos ingresados en el formulario
+
   nombreCaso = document.getElementById("nombreCaso").value;
   avaluo = document.getElementById("avaluo").value;
   porcentaje = document.getElementById("porcentaje").value; 
   
-  // Se limpia el formulario
-  formulario.reset();
-  
-//         *** SECCIÓN 2: FUNCIÓN Y CONDICIONALES PARA EL CÁLCULO DE LA COMPETENCIA  ***
-
-  // Se toman los datos y se calcula del valor monetario de la cuantía de la competencia judicial
+    // Se toman los datos y se calcula del valor monetario de la cuantía de la competencia judicial
 
       if (avaluo !== NaN && porcentaje !== NaN) {
         cuantia = (avaluo * porcentaje) / 100;
@@ -140,84 +85,47 @@ formulario.addEventListener("submit", function(e){
       }
     }
 
-    //         *** SECCIÓN 3: NUEVA - GUARDADO DE LOS RESULTADOS EN EL SESSION STORAGE  ***
+    // Se construye el objeto donde se guardará toda la información invocando una función (Ver archivo Tools.js.) 
+    agregarCasoAlSistema(nombreCaso,avaluo,porcentaje,cuantia,cuantiaCaso,juzgado)
 
-  // Registro de la información obtenida en la tabla de resultados de la página
-
-// FORMO UN OBJETO Y  ARRAY CON LOS RESULTADOS
-
-  // Formación del objeto que hará parte del array de casos (la idea es contar los casos ingresados).
-
-  caso = {
-    nombreCaso,
-    avaluo,
-    porcentaje,
-    cuantia,
-    cuantiaCaso,
-    juzgado
-    }
-  
-
-  // Método que agrega el nuevo objeto al array.
-  
-  let ARRAYCASOSDELUSUARIO = [];
-  // let ARRAYTOTALDECASOS = [];
-  // let ARRAYDECASOSRECUPERADO = [];
-
-  
-  ARRAYCASOSDELUSUARIO.push(caso);
-  
-  // ARRAYTOTALDECASOS = ARRAYCASOSDELUSUARIO.concat(ARRAYDECASOSRECUPERADO);
-
-// if(ARRAYDECASOSRECUPERADO !== null){
-//     ARRAYTOTALDECASOS = ARRAYCASOSDELUSUARIO.concat(ARRAYDECASOSRECUPERADO);
-// } else {
-//   ARRAYTOTALDECASOS = ARRAYCASOSDELUSUARIO;
-//   ARRAYDECASOSRECUPERADO.push(caso);
-// }
-  
-
-  console.log(ARRAYCASOSDELUSUARIO); // ["?", "?", "?", "?"]
-
-// GUARDO EN EL SESSION STORAGE EL ARRAY QUE VA CRECIENDO
-
-
-sessionStorage.setItem("arrayEnSessionStorage", JSON.stringify(ARRAYCASOSDELUSUARIO));
-
-// let ARRAYFINALDECASOS = [];
-
-// ARRAYFINALDECASOS = JSON.parse(sessionStorage.getItem("arrayEnSessionStorage"));
-
-console.log(ARRAYCASOSDELUSUARIO);
-// Registro de la información nueva obtenida en la tabla de resultados de la página
-
-// if (ARRAYFINALDECASOS !== null){
-  for (let caso of ARRAYFINALDECASOS){
-    let tablaDeCasos = document.getElementById("tablaCasos");
-    let nuevaFila = tablaDeCasos.insertRow();
+    // Se pinta la nueva información en la tabla invocando una función (Ver archivo Tools.js.)
+    llenartabladecasos();
     
-    nuevaCasilla = nuevaFila.insertCell(0);
-    nuevaCasilla.textContent = caso.nombreCaso;
-  
-    nuevaCasilla = nuevaFila.insertCell(1);
-    nuevaCasilla.textContent = caso.avaluo;
-  
-    nuevaCasilla = nuevaFila.insertCell(2);
-    nuevaCasilla.textContent = caso.porcentaje;
-  
-    nuevaCasilla = nuevaFila.insertCell(3);
-    nuevaCasilla.textContent = caso.cuantia;
-  
-    nuevaCasilla = nuevaFila.insertCell(4);
-    nuevaCasilla.textContent = caso.cuantiaCaso;
-  
-    nuevaCasilla = nuevaFila.insertCell(5);
-    nuevaCasilla.textContent = caso.juzgado;
-  }
+    // Se limpia el formulario del html
+    formulario.reset();
+  })
 
 
 
-//     //         *** SECCIÓN 3: TABLA DE REGISTRO MODIFICADA POR MEDIO DEL DOM  ***
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   //         *** SECCIÓN 4: CLASIFICACIÓN DE LA INFORMACIÓN OBTENIDA CON FINES ESTADÍSTICOS  ***
@@ -256,7 +164,7 @@ console.log(ARRAYCASOSDELUSUARIO);
     // cantidadCasos.innerHTML += `<p>La cantidad de casos de Mayor cuantía es: ${casosMayorCuantia.length} </p>`;
     // tablaEstadistica.append(cantidadCasos);
 
-})
+
 
 
 
