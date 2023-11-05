@@ -3,6 +3,27 @@ Repositorio de preentrega No. 3 - CODERHOUSE Javascript
 
 // READ FIRST:
 
+                        NOTAS DE LA CORRECCIÓN DE LA PREENTREGA No. 3
+
+                        ** CAMBIOS Y MEJORAS RESPECTO DE PROYECTO DE LA PREENTREGA No. 2 **
+
+1. USO DEL SORAGE Y JSON: Mejoras del programa de cálculo de competencia judicial:
+
+     Ahora los datos y los cálculos realizados en el programa (index.html con (main.js y tools.js)) se guardan en una key del SessionStorage y re renderizan en la tabla inferior cada vez que se refresca la página.
+    Escogí el Session storage porque la idea es que se borren los datos facilmente al cambiar de usuario. 
+
+    Este lo desarrollé primero.
+
+    NOTA: El sistema funciona perfectamente.
+
+2. USO DEL SORAGE Y JSON: REGISTRO Y LOGIN:
+
+    Se creó un sistema de registro de usuarios (register.html con register.js y registerfunctiopn.js) que se guarda en forma de array en una key del Local Storage.
+    En el login delprograma (login.html con login.js) se llama a esta key para comparar con el usuario de login.
+
+    NOTA: EL register funciona perfectamente guardando la indfo en el localstorage.
+            En el login me esforcé por desarrollar una condicional que compare los datos del array de usuarios registrados con el objeto de usuario que se loguea, no pude lograrlo a tiempo. 
+
                                             NOTAS DE LA PREENTREGA No. 3
 
                         ** CAMBIOS Y MEJORAS RESPECTO DE PROYECTO DE LA PREENTREGA No. 2 **

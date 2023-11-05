@@ -51,12 +51,18 @@ header {
             color: rgb(170, 170, 170);
             
         }
-        .nav-cart{
-            .navigation__cart--button{
-                width: 115px;
+        .nav-logout{
+            .navigation__logout--button{
+                font-weight: 700;
+                background-color: #c29534;
+                width: 180px;
+                height: 35px;
                 padding: 0 30px;
+                outline: 0;
+                border: 1px solid #474747;
+                border-radius: 10px;
             }
-            .navigation__cart--button:hover {
+            .navigation__logout--button:hover {
                 transform: scale(1.2);
             }
         }
