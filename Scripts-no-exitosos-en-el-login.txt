@@ -1,0 +1,25 @@
+
+
+CONDICIONALES Y CICLOS FOR INTENTADOS EN EL LOGIN. NO FUNCIONARON
+
+    // Se desarrolla la condicional que compara los input del usuario con los datos traídos del 
+    // Local Storage para permitir el login y dirigir al home
+
+    // for(i = 0; i <= arrayTraidoDelStorage.lenght; i++){
+
+    //   if(arrayTraidoDelStorage[i].elusuario == usuario.elusuario &&
+    //     arrayTraidoDelStorage[i].lacontrasegna == usuario.lacontrasegna){
+    //       window.location.href = "../index.html";  
+    //     } else {
+    //     let resultadoLogin = document.getElementById("resultado"); 
+    //     resultadoLogin.innerHTML = "<p>Usuario o contraseña incorrectos</p>";
+    //     }
+    //   }
+
+
+    // if (arrayTraidoDelStorage.includes("usuario")) {
+    //     window.location.href = "../index.html";
+    //   } else {
+    //   let resultadoLogin = document.getElementById("resultado"); 
+    //   resultadoLogin.innerHTML = "<p>Usuario o contraseña incorrectos</p>";
+    //   }

@@ -1,23 +1,7 @@
 
-//        *** SECCIÓN 1: RECUPERACIÓN DE DATOS GUARDADOS EN EL SESSIONSTORAGE  ***
-
-    // Declaración de arrays vacíos que intervienen en la recuperación 
-
-// let arraysesionanterior = [];
-// let arraycompleto = [];
-
-    // Se trae la información del SessionStorage invocando la key donde se guardará siempre 
-
-// let arrayTraidoDelStorage = JSON.parse(sessionStorage.getItem("arrayEnSessionStorage"));
-    
-    // Condicional donde se averigua si existe o no la key del session storage.
-    // Si existe, pinta en la tabla la información existente. 
-
-    
-
 //         *** SECCIÓN 1: LOGIN ***
 
-formulario.addEventListener("submit", function(e){
+formulario.addEventListener("submit", function(e) {
     e.preventDefault();
     
     // Se vincula la información digitada en el formulario para ser traida al programa
@@ -26,39 +10,36 @@ formulario.addEventListener("submit", function(e){
     let nombreUsuario = document.getElementById("username").value;
     let contrasegna = document.getElementById("password").value;
 
-    // let arrayusuariologin = [];
-
-        // Función que crea el objeto que se guardará en los arrays y el Local Storage. 
+        // Se crea el objeto que se guarda el usuario y ocntraseña ingresados. 
 
     let usuario = {
         elusuario: nombreUsuario,
         lacontrasegna: contrasegna
         };
+  
+    // Se declara el array donde se guardará el array con la información de usuarios y contraseñas guardadas en el Local Storage. 
 
-    // Se adjunta el nuevo objeto al array de casos nuevos.   
-    // arrayusuariologin.push(usuario);
-        console.log(usuario);
+    let arrayTraidoDelStorage = new Array(); 
 
-    
-    // Se trae el array de usuarios y contraseñas guardadas en el Local Storage y se transforman con parse
+    // Se trae el array del Local Storage por medio de un operador ternario se inquiere si el array que viene tiene o no elementos. 
+    // Si nos los tiene crea un array vacío.
 
-    let arrayTraidoDelStorage = JSON.parse(localStorage.getItem("arrayEnLocalStorage"));
-    console.log(arrayTraidoDelStorage);
+    arrayTraidoDelStorage = JSON.parse(localStorage.getItem("arrayEnLocalStorage"))?  JSON.parse(localStorage.getItem("arrayEnLocalStorage")):[]
+
+    // Condicional que comprueba la coordinancia entre el usuario y contraseña ingresados y los mismos datos del array traído del Local Storage.
+    // Si hay coordinancia el enlace lleva a la página del programa. Si no, aparece mensaje de aviso.
+    if (arrayTraidoDelStorage.some((x) => {
+      return x.elusuario == usuario.elusuario && x.lacontrasegna == usuario.lacontrasegna
+      })){
+        window.location.href = "../index.html";  
+      } else {
+        let resultadoLogin = document.getElementById("resultado"); 
+        resultadoLogin.innerHTML = "<p>Usuario o contraseña incorrectos</p>";
+        }
     
     // Se limpia el formulario
 
     formulario.reset();
-
-    // Se desarrolla la condicional que compara los input del usuario con los datos traídos del 
-    // Local Storage para permitir el login y dirigir al home
-
-
-    if (arrayTraidoDelStorage.includes("usuario")) {
-        window.location.href = "../index.html";
-      } else {
-      let resultadoLogin = document.getElementById("resultado"); 
-      resultadoLogin.innerHTML = "<p>Usuario o contraseña incorrectos</p>";
-      }
 
  })
 
